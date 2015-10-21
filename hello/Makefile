@@ -10,8 +10,12 @@ OBJCOPY := $(CROSS_COMPILE)objcopy
 QEMU := qemu-system-arm
 INSTALL := sudo apt-get install
 
-all: $(BIN)
-	@echo 'done'
+all:
+	@echo 'usage:'
+	@echo '  make check'
+	@echo '  make '$(BIN)
+	@echo '  make qemu'
+	@echo '  make clean'
 
 $(BIN): $(ELF)
 	$(OBJCOPY) -O binary $^ $@
