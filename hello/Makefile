@@ -7,7 +7,6 @@ AS := $(CROSS_COMPILE)as
 LD := $(CROSS_COMPILE)ld
 OBJCOPY := $(CROSS_COMPILE)objcopy
 
-CPU  := arm926ej-s
 QEMU := qemu-system-arm
 INSTALL := sudo apt-get install
 
@@ -18,14 +17,14 @@ $(BIN): $(ELF)
 	$(OBJCOPY) -O binary $^ $@
 
 $(ELF):
-	$(AS) -mcpu=$(CPU) startup.s -o startup.o
-	$(CC) -c -mcpu=$(CPU) test.c -o test.o
+	$(AS) startup.s -o startup.o
+	$(CC) -c test.c -o test.o
 	$(LD) -T test.ld test.o startup.o -o $@
 
 .PHONY: qemu check clean
 qemu:
-	@echo 'Press "Ctrl + a" and then "x" to exit'
-	$(QEMU) -M versatilepb -nographic -kernel $(BIN)
+	@echo -e '\e[33mPress "Ctrl + a" and then "x" to exit\e[0m'
+	$(QEMU) -M vexpress-a9 -nographic -kernel $(BIN)
 
 check:
 	$(INSTALL) gcc-arm-linux-gnueabi
