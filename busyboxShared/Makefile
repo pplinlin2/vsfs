@@ -19,7 +19,9 @@ BUSY_DIR  := busybox-1.23.0
 BUSY_WEB  := http://busybox.net/downloads/
 BUSY_TAR  := $(BUSY_DIR).tar.bz2
 BUSY_BIN  := rootfs.img.gz
+
 RCS  := etc/init.d/rcS
+SYSROOT := /usr/arm-linux-gnueabi/lib
 
 all:
 	@echo 'usage:'
@@ -34,12 +36,12 @@ busybox:
 	cd $(BUSY_DIR) && \
 	$(EXPORT) && \
 	make defconfig && \
-	echo 'CONFIG_STATIC=y' >> .config && \
 	make install -j 8
 
 rootfs:
 	cd $(BUSY_DIR)/_install && \
-	mkdir -p proc sys dev etc etc/init.d && \
+	mkdir -p lib proc sys dev etc etc/init.d && \
+	cp $(SYSROOT)/libc.so.6 $(SYSROOT)/libm.so.6 $(SYSROOT)/ld-linux.so.3 lib/ && \
 	echo '#!/bin/sh' > $(RCS) && \
 	echo 'mount -t proc none /proc' >> $(RCS) && \
 	echo 'mount -t sysfs none /sys' >> $(RCS) && \
