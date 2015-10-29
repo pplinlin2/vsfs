@@ -1,0 +1,37 @@
+menu "User configuration"
+
+config NAME
+	string "Enter your name"
+
+choice
+	prompt "Jobs"
+	default ENGINEER
+
+config STUDENT
+	bool "Student"
+
+config ENGINEER
+	bool "Engineer"
+
+config BOSS
+	bool "Boss"
+
+endchoice
+
+config SCHOOL_NAME
+	string "Name of school"
+	depends on STUDENT
+
+config COMPANY_NAME
+	string "Name of company"
+	depends on ENGINEER || BOSS
+
+endmenu
+
+menu "Rootfs configuration"
+
+config ROOTFS_STATIC
+	bool "Build BusyBox as a static binary (no shared libs)"
+	default y
+
+endmenu
