@@ -1,3 +1,4 @@
+# Virtual system from scratch
 ### Table of contents
 
 1. [Hello world for bare metal ARM using QEMU][1]
@@ -8,10 +9,10 @@
 6. [make menuconfig from scratch][6]
 7. [Debugging of SeaBIOS][7]
 
-[1]: https://github.com/pplinlin2/arm/tree/master/hello
-[2]: https://github.com/pplinlin2/arm/tree/master/kernel
-[3]: https://github.com/pplinlin2/arm/tree/master/busybox
-[4]: https://github.com/pplinlin2/arm/tree/master/busyboxShared
-[5]: https://github.com/pplinlin2/arm/tree/master/newcmd
-[6]: https://github.com/pplinlin2/arm/tree/master/menuconfig
-[7]: https://github.com/pplinlin2/arm/tree/master/seabios
+[1]: https://github.com/pplinlin2/vsfs/tree/master/hello
+[2]: https://github.com/pplinlin2/vsfs/tree/master/kernel
+[3]: https://github.com/pplinlin2/vsfs/tree/master/busybox
+[4]: https://github.com/pplinlin2/vsfs/tree/master/busyboxShared
+[5]: https://github.com/pplinlin2/vsfs/tree/master/newcmd
+[6]: https://github.com/pplinlin2/vsfs/tree/master/menuconfig
+[7]: https://github.com/pplinlin2/vsfs/tree/master/seabios
