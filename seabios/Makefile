@@ -23,7 +23,7 @@ all:
 
 build:
 	make -C $(BIOS_DIR) defconfig
-	sed 's/CONFIG_DEBUG_LEVEL=.*/CONFIG_DEBUG_LEVEL=3/g' $(BIOS_DIR)/.config
+	sed -i 's/CONFIG_DEBUG_LEVEL=.*/CONFIG_DEBUG_LEVEL=3/g' $(BIOS_DIR)/.config
 	make -C $(BIOS_DIR)
 
 test:
@@ -36,7 +36,7 @@ qemu2:
 	$(QEMU) -bios $(BIOS_DIR)/$(BIOS_BIN) -vnc $(VNCIP):$(VNCPORT) $(TFLAG) $(DFLAG)
 
 check:
-	$(INSTALL) $(QEMU)
+	$(INSTALL) qemu-system-x86
 	$(INSTALL) iasl
 	wget $(TEST_ISO)
 	wget $(BIOS_WEB)$(BIOS_TAR)
