@@ -8,6 +8,7 @@
 5. [Adding new commands to BusyBox][5]
 6. [make menuconfig from scratch][6]
 7. [Debugging of SeaBIOS][7]
+8. [Compile Linux kernel for x86_64][8]
 
 [1]: https://github.com/pplinlin2/vsfs/tree/master/hello
 [2]: https://github.com/pplinlin2/vsfs/tree/master/kernel
@@ -16,3 +17,4 @@
 [5]: https://github.com/pplinlin2/vsfs/tree/master/newcmd
 [6]: https://github.com/pplinlin2/vsfs/tree/master/menuconfig
 [7]: https://github.com/pplinlin2/vsfs/tree/master/seabios
+[8]: https://github.com/pplinlin2/vsfs/tree/master/busybox-x86
